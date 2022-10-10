@@ -1,0 +1,29 @@
+.question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.question {
+    color: #00fa9a;
+    font-weight: bold;
+}
+
+.options-container {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+.options {
+    height: 10vh;
+    margin: 2px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    color: black;
+    background-color: #FFA500;
+}
