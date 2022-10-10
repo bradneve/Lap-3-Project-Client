@@ -1,0 +1,22 @@
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.correct-answer {
+    border-color: #180474;
+    /* background-color: #FFA500; */
+    background-color: mediumspringgreen;
+    border-radius: 15px;
+    border-style: solid;
+    padding: 30px;
+    margin: 30px;
+    width: 50%;
+    text-align: center;
+    color: #180474;
+    font-weight: bold;
+    box-shadow: 5px 10px;
+}

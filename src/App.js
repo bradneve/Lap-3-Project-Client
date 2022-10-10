@@ -1,6 +1,6 @@
 import React from 'react';
 import {Routes, Route } from 'react-router-dom'
-import { Login, Home, Questions } from './pages';
+import { Login, Home, Questions, RoundSummary } from './pages';
 
 import './app.css'
 
@@ -12,6 +12,8 @@ const App = () => {
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/question" element={<Questions />} />
+            <Route path="/roundover" element={<RoundSummary />} />
+            
         </Routes>
         </div>
     )
