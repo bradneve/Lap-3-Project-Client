@@ -13,7 +13,7 @@ export const LoginForm = (props) => {
         return (
             <div className="Auth-form-container">
                 <Logo />
-                <form className="Auth-form">
+                <form className="Auth-form" id="loginForm">
                     <div className="Auth-form-content">
                         <h3 className="Auth-form-title">Sign In</h3>
                         <div className="text-center">
@@ -23,25 +23,25 @@ export const LoginForm = (props) => {
                             </span>
                         </div>
                         <div className="form-group mt-3">
-                            <label>Email address</label>
+                            <label htmlFor="name1">Username:</label>
                             <input
-                                type="email"
+                                type="text"
+                                id="name1"
                                 className="form-control mt-1"
-                                placeholder="Enter email"
+                                placeholder="Enter username"
                             />
                         </div>
                         <div className="form-group mt-3">
-                            <label>Password</label>
+                            <label htmlFor="password1">Password</label>
                             <input
                                 type="password"
+                                id="password1"
                                 className="form-control mt-1"
                                 placeholder="Enter password"
                             />
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button type="submit" className="btn btn-primary">
-                                Submit
-                            </button>
+                            <input type="submit" value="Login" className="py-2"/>
                         </div>
                     </div>
                 </form>
@@ -52,9 +52,9 @@ export const LoginForm = (props) => {
     return (
         <div className="Auth-form-container">
             <Logo />
-            <form className="Auth-form">
+            <form className="Auth-form" id="registerForm">
                 <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
+                    <h3 className="Auth-form-title">Register</h3>
                     <div className="text-center">
                         Already registered?{" "}
                         <span className="link-primary" onClick={changeAuthMode}>
@@ -86,9 +86,7 @@ export const LoginForm = (props) => {
                         />
                     </div>
                     <div className="d-grid gap-2 mt-3">
-                        <button type="submit" className="btn btn-primary">
-                            Submit
-                        </button>
+                        <input type="submit" value="Register" className="py-2"/>
                     </div>
                 </div>
             </form>
