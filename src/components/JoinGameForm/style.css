@@ -2,3 +2,53 @@
     -webkit-appearance: none;
     margin: 0;
 }
+
+.join-game-container, .create-game-container {
+    border-color: #180474;
+    /* background-color: #FFA500; */
+    background-color: mediumspringgreen;
+    border-radius: 15px;
+    border-style: solid;
+    padding: 30px;
+    margin: 30px;
+    text-align: center;
+    color: #180474;
+    font-weight: bold
+}
+
+.create-new-game-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+.join-existing-game-form {
+    display: flex;
+    flex-direction: column;
+}
+input[type=submit] {
+    background-color: #5e057e;
+    border-radius: 5px;
+    border-style: none;
+    margin-top: 10px;
+    /* color:#FFA500; */
+    color: mediumspringgreen;
+    font-family: 'Silkscreen', cursive;
+}
+
+input[type=number] {
+    border-style: none;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+}
+select {
+    border-style: none;
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+}
+label {
+    text-align: center;
+    color:#180474;
+}

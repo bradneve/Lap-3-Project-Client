@@ -6,23 +6,24 @@ const JoinGameForm = () => {
     return (
         <>
             <div className='join-game-container'>
+                <p>JOIN EXISTING GAME</p>
                 <form className='join-existing-game-form' action="">
-                    <label htmlFor="game-pin">JOIN EXISTING GAME:</label>
+                    <label style={{ display: 'none' }} htmlFor="game-pin">Enter your game PIN</label>
                     <input placeholder='Enter Game PIN' id='game-pin' type="number" minValue='10000' maxValue='99999' />
                     <input type="submit" value={'JOIN GAME'} />
                 </form>
             </div>
             <div className='create-game-container'>
-
+                <p>CREATE NEW GAME</p>
                 <form className='create-new-game-form' action="">
-                    <label htmlFor="number-of-questions">Number of questions</label>
+                    <label htmlFor="number-of-questions">Select your number of questions:</label>
                     <select name="number-of-questions" id="number-of-questions">
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
                     </select>
-                    <label htmlFor="category">Pick your category</label>
+                    <label htmlFor="category">Pick your category:</label>
                     <select name="category" id="category">
                         <option value="9">General Knowledge</option>
                         <option value="10">Entertainment: Books</option>
@@ -49,7 +50,7 @@ const JoinGameForm = () => {
                         <option value="31">Japanese Anime and Manga</option>
                         <option value="32">Cartoon and Animations</option>
                     </select>
-                    <label htmlFor="difficulty">Choose your difficulty</label>
+                    <label htmlFor="difficulty">Choose your difficulty:</label>
                     <select name="difficulty" id="difficulty">
                         <option value="mixed">Mixed</option>
                         <option value="easy">Easy</option>
