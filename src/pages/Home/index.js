@@ -1,8 +1,13 @@
 import React from 'react'
+import { JoinGameForm, Logo } from '../../components'
+import './style.css'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='home-container'>
+        <Logo/>
+        <JoinGameForm/>
+    </div>
   )
 }
 

@@ -6,10 +6,13 @@ import './app.css'
 
 const App = () => {
     return (
+        <div className='main'>
+
         <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />} />
         </Routes>
+        </div>
     )
 };
 

@@ -1,0 +1,4 @@
+#game-pin::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
