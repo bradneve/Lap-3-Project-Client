@@ -13,7 +13,8 @@
     margin: 30px;
     text-align: center;
     color: #180474;
-    font-weight: bold
+    font-weight: bold;
+    box-shadow: 5px 10px;
 }
 
 .create-new-game-form {
