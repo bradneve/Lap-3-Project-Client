@@ -11,13 +11,13 @@ import { questionReducer, answerReducer } from './reducers'
 const store = createStore(combineReducers({
     questionReducer,
     answerReducer
-  }), applyMiddleware(thunk))
+}), applyMiddleware(thunk))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
-        <Provider store={store}>
+    <Provider store={store}>
+        <BrowserRouter>
             <App />
-        </Provider>
-    </BrowserRouter>
+        </BrowserRouter>
+    </Provider>
 );

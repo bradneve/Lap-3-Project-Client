@@ -5,7 +5,7 @@ import { getQuestions } from '../../actions'
 
 const JoinGameForm = () => {
     const dispatch = useDispatch();
-
+    // const getResults = e => dispatch(getQuestions(e))
     return (
         <>
             <div className='join-game-container'>

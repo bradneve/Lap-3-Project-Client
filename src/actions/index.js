@@ -1,23 +1,25 @@
 import axios from 'axios'
-import { useDispatch } from 'react-redux';
 
 
 const storeQuestions = ({})
 
 export const getQuestions = async (e) => {
     e.preventDefault()
+    // return async dispatch => {
     try {
             console.log('hell')
             const data = await fetchQuestions(e)
             const questions = []
             data.forEach( question => questions.push(question.question))
             console.log(questions);
-            dispatch(storeQuestions(questions))
+            return questions
+            // dispatch(storeQuestions(questions))
         }
         catch (err) {
             console.warn(err.message)
         }
     }
+// }
 
 const fetchQuestions = async (e) => {
     try {
