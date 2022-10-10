@@ -1,0 +1,18 @@
+.waiting-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.list-of-members {
+    list-style-type: none;
+    border-radius: 10px 10px 10px 10px;
+    background-color: mediumspringgreen;
+    padding: 20px;
+}
+
+.game-id {
+    color: #FFA500;
+}

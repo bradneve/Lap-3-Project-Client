@@ -1,8 +1,20 @@
 import React from 'react'
+import axios from 'axios'
 
 import './style.css'
 
 const JoinGameForm = () => {
+
+    const fetchQuestions = async (e) => {
+        try {
+            e.preventDefault()
+            const { data } = await axios.get(`https://opentdb.com/api.php?amount=${e.target.numberOfQuestions.value}&category=${e.target.category.value}&difficulty=${e.target.difficulty.value}&type=multiple`)
+            console.log(data)
+        } catch (error) {
+            console.log('Error')
+        }
+    }
+    
     return (
         <>
             <div className='join-game-container'>
@@ -15,14 +27,17 @@ const JoinGameForm = () => {
             </div>
             <div className='create-game-container'>
                 <p>CREATE NEW GAME</p>
-                <form className='create-new-game-form' action="">
-                    <label htmlFor="number-of-questions">Select your number of questions:</label>
-                    <select name="number-of-questions" id="number-of-questions">
+
+                <form className='create-new-game-form' onSubmit={fetchQuestions}>
+
+                    <label htmlFor="numberOfQuestions">Select your number of questions:</label>
+                    <select name="numberOfQuestions" id="numberOfQuestions">
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
                         <option value="20">20</option>
                     </select>
+
                     <label htmlFor="category">Pick your category:</label>
                     <select name="category" id="category">
                         <option value="9">General Knowledge</option>
@@ -50,6 +65,7 @@ const JoinGameForm = () => {
                         <option value="31">Japanese Anime and Manga</option>
                         <option value="32">Cartoon and Animations</option>
                     </select>
+
                     <label htmlFor="difficulty">Choose your difficulty:</label>
                     <select name="difficulty" id="difficulty">
                         <option value="mixed">Mixed</option>
@@ -57,6 +73,7 @@ const JoinGameForm = () => {
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
+
                     <input type="submit" value="CREATE GAME" />
                 </form>
             </div>
