@@ -1,8 +1,18 @@
+.timer {
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    color: #FFA500;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .question-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 55vh;
 }
 
 .question {

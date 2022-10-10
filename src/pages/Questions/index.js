@@ -1,10 +1,14 @@
 import React from 'react'
 
 import './style.css'
+import { Timer } from '../../components'
 
 const Questions = () => {
     return (
         <div>
+
+            <div className='timer'><Timer/></div>
+  
             <div className='question-container'>
                 <h1 className='question'>QUESTION GOES HERE</h1>
             </div>
