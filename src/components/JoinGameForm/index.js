@@ -14,7 +14,7 @@ const JoinGameForm = () => {
             console.log('Error')
         }
     }
-    
+
     return (
         <>
             <div className='join-game-container'>
