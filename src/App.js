@@ -1,12 +1,13 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"
+import {Routes, Route } from 'react-router-dom'
+import { Login } from './pages';
 
-import { LoginForm } from './components';
+import './app.css'
 
 const App = () => {
     return (
         <Routes>
-            <Route path="/auth" element={<LoginForm />} />
+            <Route path="/auth" element={<Login />} />
         </Routes>
     )
 };

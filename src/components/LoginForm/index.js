@@ -1,8 +1,11 @@
 import React from 'react'
+import { Logo } from '..'
+import './style.css'
 
 export const LoginForm = (props) => {
   return (
     <div className="Auth-form-container">
+    <Logo />
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
