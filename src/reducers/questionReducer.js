@@ -1,18 +1,12 @@
-const initialState = {
-[]
-};
+const initialState = { questions: []}
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "DEPOSIT":
-      return { ...state, balance: state.balance + action.payload, loading: false };
-    case "WITHDRAW":
-      return { ...state, balance: state.balance - action.payload, loading: false };
-    case "LOADING":
-      return { ...state, loading: true }
+const questionReducer = (state = initialState, action) => {
+  switch(action.type){
+    case 'STORE_QUESTIONS':
+      return { ...state, questions: action.payload }
     default:
-      return state;
+      return state
   }
 }
 
-export default questionsReducer
+export default questionReducer
