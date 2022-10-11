@@ -1,19 +1,35 @@
 import React from 'react'
-import axios from 'axios'
-
+import { useDispatch } from 'react-redux';
 import './style.css'
+import { fetchQuestions, storeQuestions, storeAnswers, storeCorrectAnswers, shuffle } from '../../actions'
 
 const JoinGameForm = () => {
 
-    const fetchQuestions = async (e) => {
+    const dispatch = useDispatch();
+
+    const getQuestions = async (e) => {
+        e.preventDefault()
         try {
-            e.preventDefault()
-            const { data } = await axios.get(`https://opentdb.com/api.php?amount=${e.target.numberOfQuestions.value}&category=${e.target.category.value}&difficulty=${e.target.difficulty.value}&type=multiple`)
-            console.log(data)
-        } catch (error) {
-            console.log('Error')
+            console.log('hell')
+            const data = await fetchQuestions(e)
+            const questions = []
+            const answers = []
+            const correct_answers = []
+            data.forEach(question => {
+                answers.push(shuffle(question.incorrect_answers.concat([question.correct_answer])))
+                correct_answers.push(question.correct_answer)
+                questions.push(question.question)
+            })
+            console.log('answers1', answers);
+            dispatch(storeQuestions(questions))
+            dispatch(storeAnswers(answers))
+            dispatch(storeCorrectAnswers(correct_answers))
+        }
+        catch (err) {
+            console.warn(err.message)
         }
     }
+
     
     return (
         <>
@@ -21,14 +37,14 @@ const JoinGameForm = () => {
                 <p>JOIN EXISTING GAME</p>
                 <form className='join-existing-game-form' action="">
                     <label style={{ display: 'none' }} htmlFor="game-pin">Enter your game PIN</label>
-                    <input placeholder='Enter Game PIN' id='game-pin' type="number" minValue='10000' maxValue='99999' />
+                    <input placeholder='Enter Game PIN' id='game-pin' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
                 </form>
             </div>
             <div className='create-game-container'>
                 <p>CREATE NEW GAME</p>
 
-                <form className='create-new-game-form' onSubmit={fetchQuestions}>
+                <form className='create-new-game-form' onSubmit={getQuestions}>
 
                     <label htmlFor="numberOfQuestions">Select your number of questions:</label>
                     <select name="numberOfQuestions" id="numberOfQuestions">
@@ -68,7 +84,7 @@ const JoinGameForm = () => {
 
                     <label htmlFor="difficulty">Choose your difficulty:</label>
                     <select name="difficulty" id="difficulty">
-                        <option value="mixed">Mixed</option>
+                        <option value="">Mixed</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
