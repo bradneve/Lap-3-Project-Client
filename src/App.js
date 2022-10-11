@@ -19,7 +19,6 @@ const App = () => {
         return () => {
             state.socket.disconnect()
         }
-
     }, [])
 
     return (

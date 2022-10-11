@@ -1,18 +1,43 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './style.css'
-import { getQuestions } from '../../actions'
+import { fetchQuestions, storeQuestions, storeAnswers, storeCorrectAnswers, shuffle } from '../../actions'
 
 const JoinGameForm = () => {
+
     const dispatch = useDispatch();
-    // const getResults = e => dispatch(getQuestions(e))
+
+    const getQuestions = async (e) => {
+        e.preventDefault()
+        try {
+            console.log('hell')
+            const data = await fetchQuestions(e)
+            const questions = []
+            const answers = []
+            const correct_answers = []
+            data.forEach(question => {
+                answers.push(shuffle(question.incorrect_answers.concat([question.correct_answer])))
+                correct_answers.push(question.correct_answer)
+                questions.push(question.question)
+            })
+            console.log('answers1', answers);
+            dispatch(storeQuestions(questions))
+            dispatch(storeAnswers(answers))
+            dispatch(storeCorrectAnswers(correct_answers))
+        }
+        catch (err) {
+            console.warn(err.message)
+        }
+    }
+
+    
     return (
         <>
             <div className='join-game-container'>
                 <p>JOIN EXISTING GAME</p>
                 <form className='join-existing-game-form' action="">
                     <label style={{ display: 'none' }} htmlFor="game-pin">Enter your game PIN</label>
-                    <input placeholder='Enter Game PIN' id='game-pin' type="number"/>
+                    <input placeholder='Enter Game PIN' id='game-pin' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
                 </form>
             </div>
