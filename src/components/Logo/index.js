@@ -4,7 +4,7 @@ import './style.css'
 
 const index = () => {
   return (
-    <div className='logo'>Trivia Rangers</div>
+    <div role={'heading'} className='logo'>Trivia Rangers</div>
   )
 }
 
