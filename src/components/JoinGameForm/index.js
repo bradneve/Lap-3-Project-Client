@@ -1,36 +1,38 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import './style.css'
-import { fetchQuestions, storeQuestions, storeAnswers, storeCorrectAnswers, shuffle } from '../../actions'
+import { fetchQuestions, storeQuestions, storeAnswers, storeCorrectAnswers, shuffle } from '../../actions/questionActions'
+import { changeState } from '../../actions/gameStateActions'
 
 const JoinGameForm = () => {
 
     const dispatch = useDispatch();
 
-    const getQuestions = async (e) => {
-        e.preventDefault()
-        try {
-            console.log('hell')
-            const data = await fetchQuestions(e)
-            const questions = []
-            const answers = []
-            const correct_answers = []
-            data.forEach(question => {
-                answers.push(shuffle(question.incorrect_answers.concat([question.correct_answer])))
-                correct_answers.push(question.correct_answer)
-                questions.push(question.question)
-            })
-            console.log('answers1', answers);
-            dispatch(storeQuestions(questions))
-            dispatch(storeAnswers(answers))
-            dispatch(storeCorrectAnswers(correct_answers))
+    function roomIdGenerator() {
+        const chars = "0123456789".split("");
+        let result = "";
+        for (let i = 0; i < 6; i++) {
+            const x = Math.floor(Math.random() * chars.length);
+            result += chars[x];
         }
-        catch (err) {
-            console.warn(err.message)
-        }
+        return result;
     }
 
-    
+    const handleFormSubmit = async (e) => {
+        e.preventDefault()
+        let gamePIN = roomIdGenerator()
+        const questions = await fetchQuestions(e)
+        const data = {
+            roomId: gamePIN,
+            host: localStorage.getItem('username'),
+            questions: questions.questions,
+            answers: questions.answers,
+            correctAnswers: questions.correct_answers
+        }
+        console.log(data)
+        // dispatch(changeState(data))
+    }
+
     return (
         <>
             <div className='join-game-container'>
@@ -41,10 +43,11 @@ const JoinGameForm = () => {
                     <input type="submit" value={'JOIN GAME'} />
                 </form>
             </div>
+
             <div className='create-game-container'>
                 <p>CREATE NEW GAME</p>
 
-                <form className='create-new-game-form' onSubmit={getQuestions}>
+                <form className='create-new-game-form' onSubmit={handleFormSubmit}>
 
                     <label htmlFor="numberOfQuestions">Select your number of questions:</label>
                     <select name="numberOfQuestions" id="numberOfQuestions">

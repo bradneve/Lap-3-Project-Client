@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom'
 import { Login, Home, Questions, RoundSummary, WaitingRoom } from './pages';
 import './app.css'
 
+import { changeState, storeSocket, addUser, startGame, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
+
 const io = require('socket.io-client')
 // const ENDPOINT = 'https://trivia-rangers.herokuapp.com/'
 const ENDPOINT = 'http://localhost:3000/'
