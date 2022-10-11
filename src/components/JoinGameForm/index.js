@@ -19,10 +19,11 @@ const JoinGameForm = () => {
 
     const handleJoinFormSubmit = async (e) => {
         e.preventDefault()
+        console.log(e.target.value)
 
         const data = {
-            roomId: e.target.value,
-            user: localStorage.getItem('username')
+            roomId: e.target.gamePIN.value,
+            username: localStorage.getItem('username')
         }
         socket.emit('join game', data)
     }
@@ -46,8 +47,8 @@ const JoinGameForm = () => {
             <div className='join-game-container'>
                 <p>JOIN EXISTING GAME</p>
                 <form className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
-                    <label style={{ display: 'none' }} htmlFor="game-pin">Enter your game PIN</label>
-                    <input placeholder='Enter Game PIN' id='game-pin' type="number" />
+                    <label style={{ display: 'none' }} htmlFor="gamePIN">Enter your game PIN</label>
+                    <input placeholder='Enter Game PIN' id='gamePIN' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
                 </form>
             </div>
