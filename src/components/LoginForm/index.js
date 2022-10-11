@@ -59,7 +59,7 @@ export const LoginForm = (props) => {
         return (
             <div className="Auth-form-container">
                 <Logo />
-                <form className="Auth-form" id="loginForm" onSubmit={handleLogin}>
+                <form  role={'form'} className="Auth-form" id="loginForm" onSubmit={handleLogin}>
                     <div className="Auth-form-content">
                         <h3 className="Auth-form-title">Sign In</h3>
                         <div className="text-center">
@@ -100,7 +100,7 @@ export const LoginForm = (props) => {
     return (
         <div className="Auth-form-container">
             <Logo />
-            <form className="Auth-form" id="registerForm" onSubmit={handleRegister}>
+            <form role={'form'} className="Auth-form" id="registerForm" onSubmit={handleRegister}>
                 <div className="Auth-form-content">
                     <h3 className="Auth-form-title">Register</h3>
                     <div className="text-center">
