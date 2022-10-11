@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoundStats, Leaderboard } from '../../components'
+import { RoundStats } from '../../components'
 import './style.css'
 
 const RoundSummary = () => {
