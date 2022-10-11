@@ -14,7 +14,7 @@ export const LoginForm = (props) => {
         if (!!localStorage.getItem('token')) {
             navigate("/home")
         }
-    }, [])
+    }, )
 
     const changeAuthMode = () => {
         setAuthMode(authMode === "signin" ? "signup" : "signin")
