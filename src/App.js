@@ -25,30 +25,30 @@ const App = () => {
         newSocket.on("create game", (data) => {
             dispatch(changeState(data))
         })
-
-        console.log(newSocket)
-        setSocket({ newSocket })
+        dispatch(storeSocket(newSocket))
+        setSocket(newSocket)
         return () => {
             socket.newSocket.disconnect()
         }
     }, [])
 
-    // useEffect(() => {
-    //     if (socket) {
-    //       socket.on("user joining waiting room", (user) => {
-    //         if (localStorage.getItem('username') === host) {
-    //           dispatch(addUser(user));
-    //           let newGameState = { ...gameState };
-    //           newGameState.users.push({
-    //             name: user,
-    //             score: 0,
-    //             hasCompletedQuiz: false,
-    //           });
-    //           socket.emit("send state to players", newGameState);
-    //         }
-    //       });
-    //     }
-    //   }, [socket, localStorage.getItem('username'), host]);
+    useEffect(() => {
+        console.log(socket)
+        if (socket) {
+            socket.on("user joining waiting room", (user) => {
+                if (localStorage.getItem('username') === host) {
+                    dispatch(addUser(user));
+                    let newGameState = { ...gameState };
+                    newGameState.users.push({
+                        name: user,
+                        score: 0,
+                        hasCompletedQuiz: false,
+                    });
+                    socket.emit("send state to players", newGameState);
+                }
+            });
+        }
+    }, [socket, localStorage.getItem('username'), host]);
 
     return (
         <div className='main'>
