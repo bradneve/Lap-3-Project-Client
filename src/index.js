@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { questionReducer, answerReducer, gameReducer } from './reducers'
+import { questionReducer } from './reducers'
 
 const store = createStore(combineReducers({
     questionReducer,
