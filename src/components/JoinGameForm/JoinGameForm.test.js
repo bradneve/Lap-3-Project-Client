@@ -1,13 +1,13 @@
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import { default as JoinGameForm } from './index'
 
 describe('JoinGameForm', () => {
-    beforeEach(() => {
-        render(<JoinGameForm/>)
-    })
 
     test('renders a form with enter game pin in it', () => {
+        renderWithReduxProvider(<JoinGameForm />, {  });
         let joinForm = screen.getByRole("form")
-        expect(joinForm.textContent).toBe('Trivia Rangers')
+        let joinGameBtn = within(joinForm).getByRole('button')
+        expect(joinForm.textContent).toBe('Enter your game PIN')
+        expect(joinGameBtn.value).toBe('JOIN GAME')
     })
 })

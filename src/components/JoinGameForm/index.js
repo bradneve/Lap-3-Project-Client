@@ -46,7 +46,7 @@ const JoinGameForm = () => {
         <>
             <div className='join-game-container'>
                 <p>JOIN EXISTING GAME</p>
-                <form className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
+                <form role={'form'} className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
                     <label style={{ display: 'none' }} htmlFor="gamePIN">Enter your game PIN</label>
                     <input placeholder='Enter Game PIN' id='gamePIN' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
