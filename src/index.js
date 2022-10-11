@@ -10,7 +10,6 @@ import { questionReducer, answerReducer, gameReducer } from './reducers'
 
 const store = createStore(combineReducers({
     questionReducer,
-    answerReducer,
     // gameReducer
 }), applyMiddleware(thunk))
 

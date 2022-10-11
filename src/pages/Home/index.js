@@ -11,7 +11,7 @@ const Home = () => {
     if (!localStorage.getItem('token')) {
       navigate("/")
     }
-  }, [])
+  }, )
 
   const handleLogout = () => {
     localStorage.clear();
