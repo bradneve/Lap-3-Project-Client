@@ -1,12 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './style.css'
-import { fetchQuestions, storeQuestions, storeAnswers, storeCorrectAnswers, shuffle } from '../../actions/questionActions'
-import { changeState } from '../../actions/gameStateActions'
+import { fetchQuestions } from '../../actions/questionActions'
 
 const JoinGameForm = () => {
 
-    const dispatch = useDispatch();
+    const socket = useSelector((state) => state.socket)
 
     function roomIdGenerator() {
         const chars = "0123456789".split("");
@@ -18,7 +17,17 @@ const JoinGameForm = () => {
         return result;
     }
 
-    const handleFormSubmit = async (e) => {
+    const handleJoinFormSubmit = async (e) => {
+        e.preventDefault()
+
+        const data = {
+            roomId: e.target.value,
+            user: localStorage.getItem('username')
+        }
+        socket.emit('join game', data)
+    }
+
+    const handleCreateFormSubmit = async (e) => {
         e.preventDefault()
         let gamePIN = roomIdGenerator()
         const questions = await fetchQuestions(e)
@@ -29,15 +38,14 @@ const JoinGameForm = () => {
             answers: questions.answers,
             correctAnswers: questions.correct_answers
         }
-        console.log(data)
-        // dispatch(changeState(data))
+        socket.emit("create game", data);
     }
 
     return (
         <>
             <div className='join-game-container'>
                 <p>JOIN EXISTING GAME</p>
-                <form className='join-existing-game-form' action="">
+                <form className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
                     <label style={{ display: 'none' }} htmlFor="game-pin">Enter your game PIN</label>
                     <input placeholder='Enter Game PIN' id='game-pin' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
@@ -47,7 +55,7 @@ const JoinGameForm = () => {
             <div className='create-game-container'>
                 <p>CREATE NEW GAME</p>
 
-                <form className='create-new-game-form' onSubmit={handleFormSubmit}>
+                <form className='create-new-game-form' onSubmit={handleCreateFormSubmit}>
 
                     <label htmlFor="numberOfQuestions">Select your number of questions:</label>
                     <select name="numberOfQuestions" id="numberOfQuestions">
