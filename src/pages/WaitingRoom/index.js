@@ -10,7 +10,8 @@ const WaitingRoom = () => {
 
         <div className='members'>
             <ul className='list-of-members'>
-                <li>Jakerin</li>
+              <h4>In the waiting room:</h4>
+                <li>Jakerin (Host)</li>
                 <li>Duncan</li>
                 <li>Bradley</li>
                 <li>Stefan</li>
