@@ -21,7 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js --transformIgnorePatterns 'node_modules/(?!axios/)'",
-    "coverage": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false --transformIgnorePatterns 'node_modules/(?!axios/)'",
+    "coverage": "react-scripts test --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false  --transformIgnorePatterns 'node_modules/(?!axios/)'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
