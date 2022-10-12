@@ -1,5 +1,5 @@
 import React from 'react'
-import { RoundStats } from '../../components'
+import { InGameLeaderboard } from '../../components'
 import './style.css'
 
 const RoundSummary = () => {
@@ -9,7 +9,7 @@ const RoundSummary = () => {
                 <div className='correct-answer'>
                     <p>Correct Answer:</p> 
                 </div>
-                <RoundStats />
+                <InGameLeaderboard />
             </div>
         </>
     )
