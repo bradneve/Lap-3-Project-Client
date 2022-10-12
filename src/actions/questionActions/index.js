@@ -28,7 +28,6 @@ export const fetchQuestions = async (e) => {
             result.correct_answers.push(question.correct_answer)
             result.questions.push(question.question)
         })
-        console.log(result)
 
         return result
 
