@@ -22,7 +22,7 @@ const Home = () => {
     <div className='home-container'>
       <Logo />
       <JoinGameForm />
-      <button onClick={handleLogout}>Logout</button>
+      <button className='logout' onClick={handleLogout}>Logout</button>
     </div>
   )
 }
