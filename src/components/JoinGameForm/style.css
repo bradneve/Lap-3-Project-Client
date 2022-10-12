@@ -5,7 +5,6 @@
 
 .join-game-container, .create-game-container {
     border-color: #180474;
-    /* background-color: #FFA500; */
     background-color: mediumspringgreen;
     border-radius: 15px;
     border-style: solid;
@@ -20,7 +19,6 @@
 .create-new-game-form {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-evenly;
 }
 .join-existing-game-form {
@@ -32,7 +30,6 @@ input[type=submit] {
     border-radius: 5px;
     border-style: none;
     margin-top: 10px;
-    /* color:#FFA500; */
     color: mediumspringgreen;
     font-family: 'Silkscreen', cursive;
 }

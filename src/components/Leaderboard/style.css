@@ -10,6 +10,8 @@
     color:#5e057e;
     overflow: hidden;
     font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: #180474;
     
 }
 .leaderboard-container{
@@ -23,7 +25,7 @@
 }
 
 .leaderboard-list {
-    list-style:upper-roman;
+    list-style:decimal;
     font-size: 3.5vh;
     font-weight: bold;
 }

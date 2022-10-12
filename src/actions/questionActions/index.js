@@ -24,12 +24,10 @@ export const fetchQuestions = async (e) => {
         }
         console.log('data', data);
         data.results.forEach(question => {
-            result.answers.push(shuffle(question.incorrect_answers.concat([question.correct_answer])))
+            result.answers.push(shuffle(decodeArray(question.incorrect_answers.concat([question.correct_answer]))))
             result.correct_answers.push(atob(question.correct_answer))
             result.questions.push(atob(question.question))
         })
-
-        console.log(result)
 
         return result
 
@@ -44,4 +42,10 @@ export function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array
+}
+
+const decodeArray = (array) => {
+    let newArray = []
+    array.forEach(e => newArray.push(atob(e)))
+    return newArray
 }
