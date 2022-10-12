@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Login, Home, Questions, RoundSummary, WaitingRoom } from './pages';
 import './app.css'
 
-import { changeState, storeSocket, addUser, startGame, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
+import { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
 
 const io = require('socket.io-client')
 // const ENDPOINT = 'https://trivia-rangers.herokuapp.com/'
@@ -22,7 +22,7 @@ const App = () => {
     useEffect(() => {
         const newSocket = io(ENDPOINT)
 
-        newSocket.on("create game", (data) => {
+        newSocket.on("change state", (data) => {
             dispatch(changeState(data))
         })
         dispatch(storeSocket(newSocket))
@@ -42,7 +42,7 @@ const App = () => {
                     newGameState.users.push({
                         name: user,
                         score: 0,
-                        hasCompletedQuiz: false,
+                        hasCompletedRound: false,
                     });
                     socket.emit("send state to players", newGameState);
                 }
