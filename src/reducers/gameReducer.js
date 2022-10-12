@@ -20,6 +20,7 @@ const gameReducer = (state = initState, action) => {
             let newUsers = [...state.gameState.users];
             let userIdx = newUsers.findIndex(item => item.name === action.user);
             newUsers[userIdx].score += action.score;
+            newUsers[userIdx].hasCompletedRound = true;
             return { ...state, gameState: { ...state.gameState, users: newUsers } };
         case 'COMPLETE_QUIZ':
             let newUsersArray = [...state.gameState.users];

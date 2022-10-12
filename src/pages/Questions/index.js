@@ -1,39 +1,71 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 import './style.css'
 
 const Questions = () => {
+
     const [counter, setCounter] = useState(30);
-    // const [shuffledAnswers, setShuffledAnswers] = useState([]);
-    const [selectedOption, setSelectedOption] = useState('');
-    const [isGameOver, setIsGameOver] = useState(false);
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [currentQuestion, setCurrentQuestion] = useState('')
+    const [currentAnswers, setCurrentAnswers] = useState([])
+
     const gameState = useSelector(state => state.gameState);
     const socket = useSelector(state => state.socket);
     const clientUser = localStorage.getItem('username');
-    // const proRef = useRef();
+
 
     useEffect(() => {
-        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+        if (counter > 0) {
+            setTimeout(() => setCounter(counter - 1), 1000);
+        } else {
+            // let score = 0
+            socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: 0 })
+            navigate('/roundover')
+        }
     }, [counter]);
 
+    useEffect(() => {
+        if (!gameState.isGameFinished) {
+            setCurrentQuestion(gameState.questions[gameState.questionNumber])
+            setCurrentAnswers(gameState.answers[gameState.questionNumber])
+        } else {
+            //redirect to finish page
+        }
+    }, [gameState.questionNumber, gameState.isGameFinished])
+
+
+    function handleAnswerSubmit(e) {
+        if (e.target.textContent === gameState.correctAnswers[gameState.questionNumber]) {
+            // let score = counter
+            socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: counter })
+            navigate('/roundover')
+        } else {
+            // let score = 0
+            socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: 0 })
+            navigate('/roundover')
+        }
+    }
+
+
     return (
-        <div role={"main"}>
+        <div>
 
             <div className='timer'>
                 <div>Time left: {counter}</div>
             </div>
 
             <div className='question-container'>
-                <h1 className='question'>QUESTION GOES HERE</h1>
+                <h1 className='question'>{currentQuestion}</h1>
             </div>
 
             <div className='options-container'>
-                <button className='options'>Option A</button>
-                <button className='options'>Option B</button>
-                <button className='options'>Option C</button>
-                <button className='options'>Option D</button>
+                <button className='options' onClick={handleAnswerSubmit}>{currentAnswers[0]}</button>
+                <button className='options' onClick={handleAnswerSubmit}>{currentAnswers[1]}</button>
+                <button className='options' onClick={handleAnswerSubmit}>{currentAnswers[2]}</button>
+                <button className='options' onClick={handleAnswerSubmit}>{currentAnswers[3]}</button>
             </div>
         </div>
     )
