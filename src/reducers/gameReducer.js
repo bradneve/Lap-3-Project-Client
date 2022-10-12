@@ -13,8 +13,6 @@ const gameReducer = (state = initState, action) => {
             let newUsersList = [...state.gameState.users];
             newUsersList.push({ name: action.payload, score: 0, hasCompletedQuiz: false })
             return { ...state, gameState: { ...state.gameState, users: newUsersList } };
-        case 'START_GAME':
-            return { ...state, gameState: { ...state.gameState, isGameStarted: true } }
         case 'INCREMENT_QUESTION':
             let newQuestionNumber = state.gameState.questionNumber + 1;
             return { ...state, gameState: { ...state.gameState, questionNumber: newQuestionNumber } };
