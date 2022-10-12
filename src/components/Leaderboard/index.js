@@ -3,7 +3,7 @@ import React from 'react'
 const Leaderboard = () => {
   return (
     <div>
-        <ul>
+        <ul role={"list"}>
             <li>Bradley
             </li>
         </ul>

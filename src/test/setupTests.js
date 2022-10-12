@@ -37,5 +37,6 @@ axios.get.mockResolvedValue({ data: [{ latlng: [123, 456] }] })
 global.renderWithReduxProvider = renderWithReduxProvider
 global.React = React;
 
+global.render = render;
 
 global.userEvent = userEvent;
