@@ -6,7 +6,7 @@ import { LoginForm } from '../../components'
 const Login = () => {
     return (
 
-        <div className='login-container text-center'>
+        <div role={"main"} className='login-container text-center'>
             <LoginForm />
         </div >
             )

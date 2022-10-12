@@ -19,12 +19,6 @@ const addUser = (user) => {
     }
 }
 
-const startGame = () => {
-    return {
-        type: 'START_GAME',
-    }
-}
-
 const incrementQuestionNumber = () => {
     return {
         type: 'INCREMENT_QUESTION'
@@ -47,4 +41,4 @@ const setQuizAsComplete = (user) => {
 }
 
 
-export { changeState, storeSocket, addUser, startGame, incrementQuestionNumber, updateScore, setQuizAsComplete };
+export { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete };

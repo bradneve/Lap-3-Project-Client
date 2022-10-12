@@ -19,7 +19,7 @@ const Questions = () => {
     }, [counter]);
 
     return (
-        <div>
+        <div role={"main"}>
 
             <div className='timer'>
                 <div>Time left: {counter}</div>

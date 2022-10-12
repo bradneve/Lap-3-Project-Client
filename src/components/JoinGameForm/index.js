@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './style.css'
 import { fetchQuestions } from '../../actions/questionActions'
 
 const JoinGameForm = () => {
 
     const socket = useSelector((state) => state.socket)
+    const navigate = useNavigate()
 
     function roomIdGenerator() {
         const chars = "0123456789".split("");
@@ -26,6 +28,7 @@ const JoinGameForm = () => {
             username: localStorage.getItem('username')
         }
         socket.emit('join game', data)
+        navigate('/waiting')
     }
 
     const handleCreateFormSubmit = async (e) => {
@@ -37,16 +40,21 @@ const JoinGameForm = () => {
             host: localStorage.getItem('username'),
             questions: questions.questions,
             answers: questions.answers,
-            correctAnswers: questions.correct_answers
+            correctAnswers: questions.correct_answers,
+            category: e.target.category.textContent,
+            difficulty: e.target.difficulty.textContent
         }
+        console.log(e.target.category.id)
+        console.log(e.target.difficulty.id)
         socket.emit("create game", data);
+        navigate('/waiting')
     }
 
     return (
         <>
             <div className='join-game-container'>
                 <p>JOIN EXISTING GAME</p>
-                <form className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
+                <form role={'form'} className='join-existing-game-form' onSubmit={handleJoinFormSubmit}>
                     <label style={{ display: 'none' }} htmlFor="gamePIN">Enter your game PIN</label>
                     <input placeholder='Enter Game PIN' id='gamePIN' type="number" />
                     <input type="submit" value={'JOIN GAME'} />
