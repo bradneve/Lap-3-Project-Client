@@ -56,7 +56,7 @@ const JoinGameForm = () => {
             <div className='create-game-container'>
                 <p>CREATE NEW GAME</p>
 
-                <form className='create-new-game-form' onSubmit={handleCreateFormSubmit}>
+                <form role={'form'} className='create-new-game-form' onSubmit={handleCreateFormSubmit}>
 
                     <label htmlFor="numberOfQuestions">Select your number of questions:</label>
                     <select name="numberOfQuestions" id="numberOfQuestions">

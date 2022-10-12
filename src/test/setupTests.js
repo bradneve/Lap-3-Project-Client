@@ -2,7 +2,7 @@ import React from 'react';
 
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -20,7 +20,9 @@ const TestProviders = ({ initState }) => {
 
     return ({ children }) => (
         <Provider store={testStore}>
-            {children}
+            <Router>
+                {children}
+            </Router>
         </Provider>
     )
 }
@@ -32,7 +34,7 @@ const renderWithReduxProvider = (ui, options = {}) => {
 
 import axios from 'axios';
 jest.mock('axios')
-axios.get.mockResolvedValue({ data: [{ latlng: [123, 456] }] })
+axios.get.mockResolvedValue({ data: { results: [{ question: 'q1', incorrect_answers: ['ia11, ia12, ia13'], correct_answer: 'ca1' }] } })
 
 global.renderWithReduxProvider = renderWithReduxProvider
 global.React = React;
