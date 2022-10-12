@@ -16,7 +16,7 @@ export const storeCorrectAnswers = (answers) => ({
 
 export const fetchQuestions = async (e) => {
     try {
-        const { data } = await axios.get(`https://opentdb.com/api.php?amount=${e.target.numberOfQuestions.value}&category=${e.target.category.value}&difficulty=${e.target.difficulty.value}&type=multiple`)
+        const { data } = await axios.get(`https://opentdb.com/api.php?amount=${e.target.numberOfQuestions.value}&category=${e.target.category.value}&difficulty=${e.target.difficulty.value}&type=multiple&encode=base64`)
         const result = {
             questions: [],
             answers: [],
@@ -25,8 +25,8 @@ export const fetchQuestions = async (e) => {
         console.log('data', data);
         data.results.forEach(question => {
             result.answers.push(shuffle(question.incorrect_answers.concat([question.correct_answer])))
-            result.correct_answers.push(question.correct_answer)
-            result.questions.push(question.question)
+            result.correct_answers.push(atob(question.correct_answer))
+            result.questions.push(atob(question.question))
         })
 
         return result
