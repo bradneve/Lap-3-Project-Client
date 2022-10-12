@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './style.css'
 import { fetchQuestions } from '../../actions/questionActions'
 
 const JoinGameForm = () => {
 
     const socket = useSelector((state) => state.socket)
+    const navigate = useNavigate()
 
     function roomIdGenerator() {
         const chars = "0123456789".split("");
@@ -26,6 +28,7 @@ const JoinGameForm = () => {
             username: localStorage.getItem('username')
         }
         socket.emit('join game', data)
+        navigate('/waiting')
     }
 
     const handleCreateFormSubmit = async (e) => {
@@ -40,6 +43,7 @@ const JoinGameForm = () => {
             correctAnswers: questions.correct_answers
         }
         socket.emit("create game", data);
+        navigate('/waiting')
     }
 
     return (

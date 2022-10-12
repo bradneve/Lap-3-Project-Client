@@ -42,7 +42,7 @@ const App = () => {
                     newGameState.users.push({
                         name: user,
                         score: 0,
-                        hasCompletedQuiz: false,
+                        hasCompletedRound: false,
                     });
                     socket.emit("send state to players", newGameState);
                 }
