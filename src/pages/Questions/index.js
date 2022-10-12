@@ -5,7 +5,7 @@ import { Timer } from '../../components'
 
 const Questions = () => {
     return (
-        <div>
+        <div role={"main"}>
 
             <div className='timer'><Timer/></div>
   

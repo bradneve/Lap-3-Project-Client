@@ -28,7 +28,7 @@ const WaitingRoom = () => {
   return (
     <>
       {data.users &&
-        <div className='waiting-container'>
+        <div role={"main"} className='waiting-container'>
           <Logo />
           <p className='game-id'>The game ID is: {data.roomId}</p>
           <div className='members'>
@@ -40,7 +40,6 @@ const WaitingRoom = () => {
           </div>
         </div>
       }
-
     </>
   )
 }
