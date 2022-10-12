@@ -19,7 +19,7 @@ const Home = () => {
   }
 
   return (
-    <div className='home-container'>
+    <div role={"main"} className='home-container'>
       <Logo />
       <JoinGameForm />
       <button className='logout' onClick={handleLogout}>Logout</button>

@@ -4,7 +4,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 const RoundStats = () => {
     return (
-        <CardGroup style={{width: '50%', }}>
+        <CardGroup style={{width: '50%', }} role={"contentinfo"}>
             <Card>
                 <Card.Img variant="top" src="holder.js/100px160" />
                 <Card.Body style={{backgroundColor: 'mediumspringgreen'}}>
