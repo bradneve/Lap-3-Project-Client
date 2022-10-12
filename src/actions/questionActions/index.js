@@ -29,6 +29,8 @@ export const fetchQuestions = async (e) => {
             result.questions.push(atob(question.question))
         })
 
+        console.log(result)
+
         return result
 
     } catch (error) {
