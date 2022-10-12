@@ -8,7 +8,6 @@
 
 .correct-answer {
     border-color: #180474;
-    /* background-color: #FFA500; */
     background-color: mediumspringgreen;
     border-radius: 15px;
     border-style: solid;
@@ -18,5 +17,7 @@
     text-align: center;
     color: #180474;
     font-weight: bold;
-    box-shadow: 5px 10px;
+    box-shadow: 15px 10px;
+    font-size: 4vh;
+    font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
 }
