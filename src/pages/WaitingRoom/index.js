@@ -12,7 +12,11 @@ const WaitingRoom = () => {
   function ifHost() {
     if (data.host === localStorage.getItem('username')) {
       return (
-        <button onClick={handleStartGame}>Start game</button>
+        <button className='start' onClick={handleStartGame}>Start game</button>
+      )
+    } else {
+      return (
+        <p className='wait-for-host'>Waiting for host to start the game...</p>
       )
     }
   }
@@ -30,7 +34,10 @@ const WaitingRoom = () => {
       {data.users &&
         <div className='waiting-container'>
           <Logo />
-          <p className='game-id'>The game ID is: {data.roomId}</p>
+          <p className='game-id'>{data.host}'s room</p>
+          <p className='game-id'>Game ID: {data.roomId}</p>
+          {/* <p>Category: { data.category }</p>
+          <p>Difficulty: { data.difficulty }</p> */}
           <div className='members'>
             <ul className='list-of-members'>
               <h4>In the waiting room:</h4>
