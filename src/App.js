@@ -27,9 +27,9 @@ const App = () => {
         })
         dispatch(storeSocket(newSocket))
         setSocket(newSocket)
-        return () => {
-            socket.newSocket.disconnect()
-        }
+        // return () => {
+        //     socket.newSocket.disconnect()
+        // }
     }, [])
 
     useEffect(() => {
