@@ -40,8 +40,12 @@ const JoinGameForm = () => {
             host: localStorage.getItem('username'),
             questions: questions.questions,
             answers: questions.answers,
-            correctAnswers: questions.correct_answers
+            correctAnswers: questions.correct_answers,
+            category: e.target.category.textContent,
+            difficulty: e.target.difficulty.textContent
         }
+        console.log(e.target.category.id)
+        console.log(e.target.difficulty.id)
         socket.emit("create game", data);
         navigate('/waiting')
     }
