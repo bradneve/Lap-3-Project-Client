@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+
 import { Logo } from '../../components'
 import './style.css'
 
@@ -7,6 +9,11 @@ const WaitingRoom = () => {
 
   const data = useSelector(state => state.gameState);
   const socket = useSelector(state => state.socket)
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(data);
+  }, [data])
 
 
   function ifHost() {
@@ -28,6 +35,12 @@ const WaitingRoom = () => {
     }
     socket.emit('send state to players', newState)
   }
+
+  useEffect(() => {
+    if (!!data.isGameStarted) {
+      navigate("/question")
+    }
+  }, [data.isGameStarted])
 
   return (
     <>

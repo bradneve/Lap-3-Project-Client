@@ -21,7 +21,6 @@ const JoinGameForm = () => {
 
     const handleJoinFormSubmit = async (e) => {
         e.preventDefault()
-        console.log(e.target.value)
 
         const data = {
             roomId: e.target.gamePIN.value,
@@ -41,11 +40,9 @@ const JoinGameForm = () => {
             questions: questions.questions,
             answers: questions.answers,
             correctAnswers: questions.correct_answers,
-            category: e.target.category.textContent,
-            difficulty: e.target.difficulty.textContent
+            category: e.target.category.value,
+            difficulty: e.target.difficulty.value
         }
-        console.log(e.target.category.id)
-        console.log(e.target.difficulty.id)
         socket.emit("create game", data);
         navigate('/waiting')
     }

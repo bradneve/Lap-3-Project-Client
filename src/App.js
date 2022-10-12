@@ -25,6 +25,9 @@ const App = () => {
         newSocket.on("change state", (data) => {
             dispatch(changeState(data))
         })
+        newSocket.on("update score", ({ user, score }) => {
+            dispatch(updateScore(user, score));
+        });
         dispatch(storeSocket(newSocket))
         setSocket(newSocket)
         // return () => {
@@ -33,7 +36,6 @@ const App = () => {
     }, [])
 
     useEffect(() => {
-        console.log(socket)
         if (socket) {
             socket.on("user joining waiting room", (user) => {
                 if (localStorage.getItem('username') === host) {
@@ -49,6 +51,37 @@ const App = () => {
             });
         }
     }, [socket, localStorage.getItem('username'), host]);
+
+    useEffect(() => {
+        if (localStorage.getItem('username') === host) {
+
+            let roundComplete = true
+            gameState.users.forEach(user => {
+                if (user.hasCompletedRound === false) {
+                    roundComplete = false
+                }
+            })
+
+            console.log(roundComplete)
+
+            if (!!roundComplete && (gameState.questionNumber < (gameState.questions.length-1))) {
+                console.log('why are you here???')
+                let newGameState = { ...gameState }
+                for (let i=0; i < newGameState.users.length; i++) {
+                    newGameState.users[i].hasCompletedRound = false
+                }
+                newGameState.questionNumber += 1
+                socket.emit("send state to players", newGameState);
+            } else if (!!roundComplete && (gameState.questionNumber === (gameState.questions.length-1))) {
+                let newGameState = { ...gameState }
+                newGameState.isGameFinished = true
+                for (let i=0; i < newGameState.users.length; i++) {
+                    newGameState.users[i].hasCompletedRound = false
+                }
+                socket.emit("send state to players", newGameState);
+            }
+        }
+    }, [gameState.users])
 
     return (
         <div className='main'>
