@@ -21,7 +21,7 @@ const WaitingRoom = () => {
   // }
 
   return (
-    <div className='waiting-container'>
+    <div role={"main"} className='waiting-container'>
       <Logo />
       <p className='game-id'>The game ID is: 2198018</p>
 

@@ -5,7 +5,7 @@ import './style.css'
 const RoundSummary = () => {
     return (
         <>
-            <div className='summary-container'>
+            <div role={"main"} className='summary-container'>
                 <div className='correct-answer'>
                     <p>Correct Answer:</p> 
                 </div>

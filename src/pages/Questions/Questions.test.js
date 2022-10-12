@@ -1,20 +1,20 @@
 import { screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { default as Login } from './index'
+import { default as Questions } from './index'
 
-describe('Login', () => {
+describe('Questions', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
                 <Router>
-                    <Login />
+                    <Questions />
                 </Router>
                 , {})
         )
     })
 
     test('renders the page', () => {
-        let loginPage = screen.getByRole("main")
-        expect(loginPage).toBeTruthy
+        let questions = screen.getByRole("main")
+        expect(questions).toBeTruthy
     })
 })

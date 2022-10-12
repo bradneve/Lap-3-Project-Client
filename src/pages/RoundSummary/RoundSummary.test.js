@@ -1,20 +1,20 @@
 import { screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { default as Login } from './index'
+import { default as RoundSummary } from './index'
 
-describe('Login', () => {
+describe('RoundSummary', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
                 <Router>
-                    <Login />
+                    <RoundSummary />
                 </Router>
                 , {})
         )
     })
 
     test('renders the page', () => {
-        let loginPage = screen.getByRole("main")
-        expect(loginPage).toBeTruthy
+        let roundSummary = screen.getByRole("main")
+        expect(roundSummary).toBeTruthy
     })
 })
