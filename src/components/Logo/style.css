@@ -1,3 +1,13 @@
 .logo {
     text-shadow: 4px 4px #180474;
 }
+img {
+    height: 100px;
+}
+.logoq {
+    font-size: 80px;
+    color: mediumspringgreen;
+    font-weight: bold;
+    text-shadow: 3px 3px #180474;
+    font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
+}
