@@ -59,7 +59,7 @@ const App = () => {
                 <Route path="/question" element={<Questions />} />
                 <Route path="/roundover" element={<RoundSummary />} />
                 <Route path="/waiting" element={<WaitingRoom />} />
-                <Route path="/highscores" element={<HighScores />} />
+                <Route path="/leaderboard" element={<HighScores />} />
             </Routes>
         </div>
     )

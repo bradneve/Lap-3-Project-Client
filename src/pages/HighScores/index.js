@@ -1,10 +1,11 @@
 import React from 'react'
-import { Leaderboard, Logo } from '../../components'
+import { Leaderboard, Logo, BackButton } from '../../components'
 import './style.css'
 
 const HighScores = () => {
     return (
         <div className='high-scores-container'>
+            <BackButton />
             <Logo />
             <Leaderboard />
         </div>
