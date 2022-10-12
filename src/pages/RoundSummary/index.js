@@ -9,7 +9,7 @@ const RoundSummary = () => {
                 <div className='correct-answer'>
                     <p>Correct Answer:</p> 
                 </div>
-                <InGameLeaderboard />
+                <InGameLeaderboard currentOrFinal={'Current'}/>
             </div>
         </>
     )

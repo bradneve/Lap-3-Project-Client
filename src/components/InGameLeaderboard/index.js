@@ -1,10 +1,10 @@
 import React from 'react'
 import './style.css'
 
-const InGameLeaderboard = () => {
+const InGameLeaderboard = ({currentOrFinal}) => {
     return (
         <div className='igl-container'>
-            <h1 style={{fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e'}}>Current Score's</h1>
+            <h1 style={{fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e'}}>{currentOrFinal} Scores</h1>
           <ul className='leaderboard-list' role={"list"}>
             <li>beastman69 - 300</li>
             <li></li>

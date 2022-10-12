@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
-import { Login, Home, Questions, RoundSummary, WaitingRoom, HighScores } from './pages';
+import { Login, Home, Questions, RoundSummary, WaitingRoom, HighScores, GameOver } from './pages';
 import './app.css'
 
 import { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
@@ -60,6 +60,7 @@ const App = () => {
                 <Route path="/roundover" element={<RoundSummary />} />
                 <Route path="/waiting" element={<WaitingRoom />} />
                 <Route path="/leaderboard" element={<HighScores />} />
+                <Route path="/gameover" element={<GameOver />} />
             </Routes>
         </div>
     )
