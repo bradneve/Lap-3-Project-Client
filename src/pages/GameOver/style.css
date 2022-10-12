@@ -1,4 +1,16 @@
-.igl-container {
+.game-over-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.w-l-container {
+    height: 50vh;
+}
+
+.winner-loser-box {
     background-color: mediumspringgreen;
     width: 50%;
     border-radius: 30px;
@@ -11,4 +23,7 @@
     font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
     border-style: solid;
     border-color: #180474;
+    height: 40%;
+    width: 30vw;
+    margin: 30px;
 }
