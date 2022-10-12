@@ -1,0 +1,14 @@
+.igl-container {
+    background-color: mediumspringgreen;
+    width: 50%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 15px 10px #180474;
+    color:#180474;
+    overflow: hidden;
+    font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: #180474;
+}

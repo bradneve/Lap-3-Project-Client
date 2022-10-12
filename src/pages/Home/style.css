@@ -15,3 +15,11 @@
     color: #5E057E; 
     box-shadow: 5px 10px #180474;
 }
+
+.link-to-leaderboard {
+    color: mediumspringgreen;
+    font-size: large;
+    font-weight: bold;
+    text-shadow: 3px 3px #180474;
+    text-decoration: none;
+}

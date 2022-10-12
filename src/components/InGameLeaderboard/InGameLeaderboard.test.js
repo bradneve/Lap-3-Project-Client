@@ -1,17 +1,17 @@
 import { screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { default as RoundStats } from './index'
+import { default as InGameLeaderboard } from './index'
 
-describe('RoundStats', () => {
+describe('InGameLeaderboard', () => {
     beforeEach(() => {
         render(
             <Router>
-                <RoundStats />
+                <InGameLeaderboard />
             </Router>
         )
     })
 
-    test('renders the round stats', () => {
+    test('renders the IGL', () => {
         let roundStats = screen.getByRole("contentinfo")
         expect(roundStats).toBeTruthy
     })
