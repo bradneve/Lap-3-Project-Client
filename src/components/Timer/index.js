@@ -9,7 +9,7 @@ const Timer = () => {
     }, [counter]);
 
     return (
-        <div>Time left: {counter}</div>
+        <div role={"timer"}>Time left: {counter}</div>
     )
 }
 
