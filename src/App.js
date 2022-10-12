@@ -8,8 +8,8 @@ import './app.css'
 import { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
 
 const io = require('socket.io-client')
-// const ENDPOINT = 'https://trivia-rangers.herokuapp.com/'
-const ENDPOINT = 'http://localhost:3000/'
+const ENDPOINT = 'https://trivia-rangers.herokuapp.com/'
+// const ENDPOINT = 'http://localhost:3000/'
 
 const App = () => {
 
