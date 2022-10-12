@@ -10,4 +10,6 @@ describe('JoinGameForm', () => {
         expect(joinForm.textContent).toBe('Enter your game PIN')
         expect(joinGameBtn.value).toBe('JOIN GAME')
     })
+
+    
 })

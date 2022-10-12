@@ -1,14 +1,9 @@
-import { screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { screen, render } from '@testing-library/react';
 import { default as Logo } from './index'
 
 describe('Logo', () => {
     beforeEach(() => {
-        render(
-            <Router>
-                <Logo />
-            </Router>
-        )
+        render(<Logo />)
     })
 
     test('renders a heading with trivia rangers in it', () => {
