@@ -7,7 +7,7 @@ describe('back button', () => {
     beforeEach(() => render(<BackButton />, {wrapper: MemoryRouter}))
 
     test('renders back button', () => {
-        const btn = screen.getByRole('button', {name: 'Go Back'})
+        const btn = screen.getByRole('button', {name: 'Back to home'})
         expect(btn).toBeInTheDocument()
     })
 })
