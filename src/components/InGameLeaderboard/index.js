@@ -23,7 +23,7 @@ const InGameLeaderboard = ({ currentOrFinal }) => {
       <ul className='leaderboard-list' role={"list"}>
         {orderedPlayers.map(user => {
           if(user.name === clientUser) {
-            return <li style={{textDecoration: "underline"}}  key={user.name}>{user.name}: {user.score}</li>
+            return <li style={{textDecoration: "underline"}} key={user.name}>{user.name}: {user.score}</li>
           } else {
             return <li key={user.name}>{user.name}: {user.score}</li> 
           }
