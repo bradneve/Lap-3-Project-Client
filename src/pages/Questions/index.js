@@ -55,7 +55,7 @@ const Questions = () => {
                 <button className='options' onClick={handleAnswerSubmit}>{gameState.answers[gameState.questionNumber][2]}</button>
                 <button className='options' onClick={handleAnswerSubmit}>{gameState.answers[gameState.questionNumber][3]}</button>
             </div>
-
+            <p style={{ display: "none" }}>{toRoundOver && <Navigate replace to="/roundover" />}</p>
         </div>
     )
 }
