@@ -4,7 +4,7 @@ import './style.css'
 
 const HighScores = () => {
     return (
-        <div className='high-scores-container'>
+        <div role={"main"} className='high-scores-container'>
             <BackButton />
             <Logo />
             <Leaderboard />

@@ -84,7 +84,7 @@ const App = () => {
     }, [gameState.users])
 
     return (
-        <div className='main'>
+        <div role={"application"} className='main'>
 
             <Routes>
                 <Route path="/" element={<Login />} />
