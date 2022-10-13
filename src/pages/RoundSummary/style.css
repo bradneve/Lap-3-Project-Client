@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-bottom: 5vw;
 }
 
 .correct-answer {
@@ -23,7 +24,13 @@
 }
 
 
-.timer{
+.waiting-room-timer{
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
     color: mediumspringgreen;
     font-size: min(5vw, 45px);
+    font-weight: bold;
+    margin-bottom: 5vw;
 }

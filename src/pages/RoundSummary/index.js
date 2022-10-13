@@ -56,7 +56,7 @@ const RoundSummary = () => {
 
     return (
         <>
-            <div className='timer'>
+            <div className='waiting-room-timer'>
                 {gameState.isGameFinished
                     ? <div>Game over in: {endCounter}</div>
                     : [
