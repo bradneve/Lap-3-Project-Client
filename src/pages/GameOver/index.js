@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
-
+import { updateWins } from '../../actions/userActions';
 import { InGameLeaderboard } from '../../components'
 import './style.css'
 
@@ -22,23 +22,30 @@ const GameOver = () => {
         return scores
     }
 
+    const [alreadyUpdated, setAlreadyUpdated] = useState(0)
 
     function getWinner() {
         const scores = getScores()
-        const names = []
+        const winners = []
         for (let i = 0; i < scores.length; i++) {
             if (scores[i] === Math.max(...scores)) {
-                names.push(gameState.users[i].name);
+                winners.push(gameState.users[i].name);
             }
         }
-        if (names.length > 1) {
-            let returnNames = ''
-            names.forEach(e => returnNames = returnNames + e + '  ')
-            return returnNames
+
+        if (winners.length > 1) {
+            let returnWinners = ''
+            winners.forEach(e => returnWinners = returnWinners + e + '  ')
+            return returnWinners
         } else {
-            return names[0]
+            if (gameState.host === localStorage.getItem('username') && !alreadyUpdated) {
+                updateWins(winners[0])
+                setAlreadyUpdated(1)
+            }
+            return winners[0]
         }
     }
+
 
     function getLoser() {
         const scores = getScores()
@@ -65,11 +72,11 @@ const GameOver = () => {
         <div role={"main"} className='game-over-container'>
             <h1 className='game-over-title'>GAME OVER</h1>
             <div className='winner-loser-box'>
-                <h1  style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e', fontSize: 'min(3.5vw, 40px)' }}>Winner(s)</h1>
+                <h1 style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e', fontSize: 'min(3.5vw, 40px)' }}>Winner(s)</h1>
                 <h1>{getWinner()}</h1>
             </div>
             <div className='winner-loser-box'>
-                <h1  style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e', fontSize: 'min(3.5vw, 40px)' }}>Loser(s)</h1>
+                <h1 style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e', fontSize: 'min(3.5vw, 40px)' }}>Loser(s)</h1>
                 <h1>{getLoser()}</h1>
             </div>
             <InGameLeaderboard currentOrFinal={'Final'}/>
