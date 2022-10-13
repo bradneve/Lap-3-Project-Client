@@ -1,19 +1,5 @@
 import axios from 'axios'
 
-
-export const storeQuestions = (questions) => ({
-    type: 'STORE_QUESTIONS',
-    payload: questions
-})
-export const storeAnswers = (answers) => ({
-    type: 'STORE_ANSWERS',
-    payload: answers
-})
-export const storeCorrectAnswers = (answers) => ({
-    type: 'STORE_CORRECT_ANSWERS',
-    payload: answers
-})
-
 export const fetchQuestions = async (e) => {
     try {
         const { data } = await axios.get(`https://opentdb.com/api.php?amount=${e.target.numberOfQuestions.value}&category=${e.target.category.value}&difficulty=${e.target.difficulty.value}&type=multiple&encode=base64`)

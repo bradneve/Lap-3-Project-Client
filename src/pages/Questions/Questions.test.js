@@ -3,11 +3,7 @@ import { default as Questions } from './index'
 
 describe('Questions', () => {
     beforeEach(() => {
-        render(
-            renderWithReduxProvider(
-                    <Questions />
-                , {})
-        )
+            renderWithReduxProvider(<Questions />, {})
     })
 
     test('renders the page', () => {

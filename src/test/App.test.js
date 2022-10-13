@@ -18,15 +18,20 @@ import { default as App } from '../App'
 
 describe('App', () => {
     beforeEach(() => {
-        render(
-            renderWithReduxProvider(
-                    <App />
-                , {})
-        )
+        renderWithReduxProvider(
+            <App />
+            , {})
     })
 
     test('renders the page', () => {
         let roundStats = screen.getByRole("application")
         expect(roundStats).toBeTruthy
     })
+
+    // test('round isnt complete if any users have not finished', () => {
+    //     let roundComplete = false
+    //     window.localStorage.setItem(1, { username: "test" })
+    //     renderWithReduxProvider(<App />, {})
+    //     expect(roundComplete).toBeFalsy()
+    // })
 })

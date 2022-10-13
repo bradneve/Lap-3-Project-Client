@@ -12,7 +12,14 @@ import gameReducer from '../reducers/gameReducer'
 
 const TestProviders = ({ initState }) => {
     initState ||= {
-        gameState: {},
+        gameState: {
+            users: [ { hasCompletedRound: false }],
+            questions: [],
+            correctAnswers: [],
+            answers: [],
+            isGameFinished: true,
+            host: 'test'
+        },
         socket: {},
     };
     let testReducer = () => gameReducer(initState, { type: '@@INIT' })
@@ -31,10 +38,6 @@ const renderWithReduxProvider = (ui, options = {}) => {
     let TestWrapper = TestProviders(options)
     render(ui, { wrapper: TestWrapper, ...options })
 }
-
-import axios from 'axios';
-jest.mock('axios')
-axios.get.mockResolvedValue({ data: { results: [{ question: 'q1', incorrect_answers: ['ia11, ia12, ia13'], correct_answer: 'ca1' }] } })
 
 global.renderWithReduxProvider = renderWithReduxProvider
 global.React = React;

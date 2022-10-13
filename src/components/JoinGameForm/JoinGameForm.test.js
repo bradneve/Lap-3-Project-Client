@@ -5,6 +5,8 @@ jest.mock('axios')
 import { default as JoinGameForm } from './index'
 
 describe('JoinGameForm', () => {
+    let handleCreateFormSubmit = jest.fn()
+    beforeEach(() => jest.resetAllMocks())
 
     describe('join-game-container', () => {
         test('renders a form with enter game pin in it', () => {
@@ -25,11 +27,11 @@ describe('JoinGameForm', () => {
         })
 
         // test('it makes a request to the api on submit', async () => {
-        //     axios.get.mockResolvedValue({ data: { results : [ { question: 'q1', incorrect_answers: ['ia11, ia12, ia13'], correct_answer: 'ca1' } ] }   });
-        //     renderWithReduxProvider(<JoinGameForm />, {})
-        //     let createForm = screen.getAllByRole("form")[1]
-        //     fireEvent.submit(createForm)
-        //     await expect(axios.get).toHaveBeenCalled()
+        //     axios.get.mockResolvedValue({ data: { results : { questions: 'q1', incorrect_answers: ['ia11, ia12, ia13'], correct_answer: 'ca1' }  }   });
+        //     renderWithReduxProvider(<JoinGameForm handleCreateFormSubmit={handleCreateFormSubmit} />, {})
+        //     const createForm = await screen.getAllByRole("form")[1]
+        //     await fireEvent.submit(createForm)
+        //     expect(handleCreateFormSubmit).toHaveBeenCalled()
         // })
         // test('it makes a request to the api on submit', () => {
         //     const handleCreateFormSubmit = jest.fn()
