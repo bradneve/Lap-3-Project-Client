@@ -33,6 +33,14 @@ input[type=submit] {
     color: mediumspringgreen;
     font-family: 'Silkscreen', cursive;
 }
+input[type=submit]:hover {
+    background-color: #180474;
+    border-radius: 5px;
+    border-style: none;
+    margin-top: 10px;
+    color:white;
+    font-family: 'Silkscreen', cursive;
+}
 
 input[type=number] {
     border-style: none;

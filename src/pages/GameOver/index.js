@@ -13,38 +13,54 @@ const GameOver = () => {
         })
         return scores
     }
-    
+
+
     function getWinner() {
         const scores = getScores()
-        const index = scores.indexOf(Math.max(...scores))
-
-        return gameState.users[index].name
+        const names = []
+        for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === Math.max(...scores)) {
+                names.push(gameState.users[i].name);
+            }
+        }
+        if (names.length > 1) {
+            let returnNames = ''
+            names.forEach(e => returnNames = returnNames + e)
+            return returnNames
+        } else {
+            return names[0]
+        }
     }
 
     function getLoser() {
         const scores = getScores()
-        const index = scores.indexOf(Math.min(...scores))
-
-        return gameState.users[index].name
+        const names = []
+        for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === Math.min(...scores)) {
+                names.push(gameState.users[i].name);
+            }
+        }
+        if (names.length > 1) {
+            let returnNames = ''
+            names.forEach(e => returnNames = returnNames + e)
+            return returnNames
+        } else {
+            return names[0]
+        }
     }
 
     return (
         <div role={"main"} className='game-over-container'>
-            <div className='w-l-container'>
-                <div className='winner-loser-box'>
-                    <h1>Winner:</h1>
-                    <div className='pt-4'>
-                        {getWinner()}
-                    </div>
-                </div>
-                <div className='winner-loser-box'>
-                    <h1>Loser:</h1>
-                    <div className='pt-4'>
-                        {getLoser()}
-                    </div>
-                </div>
+            <h1 className='game-over-title'>GAME OVER</h1>
+            <div className='winner-loser-box'>
+                <h1>Winner(s):</h1>
+                <h1>{getWinner()}</h1>
             </div>
-            <InGameLeaderboard currentOrFinal={'Final'}/>
+            <div className='winner-loser-box'>
+                <h1>Loser:</h1>
+                <h1>{getLoser()}</h1>
+            </div>
+            <InGameLeaderboard currentOrFinal={'Final'} />
         </div>
     )
 }

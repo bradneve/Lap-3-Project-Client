@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div role={"main"} className='home-container'>
       <Logo />
-      <Link className='link-to-leaderboard' to="/leaderboard">Click here to see our biggest winers!</Link>
+      <Link className='link-to-leaderboard' to="/leaderboard">Click here to see our biggest winners!</Link>
       <JoinGameForm />
       <button className='logout' onClick={handleLogout}>Logout</button>
     </div>
