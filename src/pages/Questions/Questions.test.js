@@ -6,9 +6,7 @@ describe('Questions', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                <Router>
                     <Questions />
-                </Router>
                 , {})
         )
     })

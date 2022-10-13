@@ -4,7 +4,7 @@ import './style.css'
 
 const GameOver = () => {
     return (
-        <div className='game-over-container'>
+        <div role={"main"} className='game-over-container'>
             <div className='w-l-container'>
                 <div className='winner-loser-box'>Winner:</div>
                 <div className='winner-loser-box'>Loser: </div>
