@@ -18,6 +18,12 @@
     color: #180474;
     font-weight: bold;
     box-shadow: 15px 10px;
-    font-size: 4vh;
+    font-size: min(4vw, 30px);
     font-family: 'Silkscreen', Arial, Helvetica, sans-serif;
+}
+
+
+.timer{
+    color: mediumspringgreen;
+    font-size: min(5vw, 45px);
 }

@@ -1,7 +1,7 @@
 .leaderboard-container-container {
     background-color: mediumspringgreen;
-    height: 70vh;
-    width: 50%;
+    height: min(100vw, 70vh);
+    width: 60vw;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 60vh;
     width: 90%;
     color: #180474;
@@ -28,7 +29,7 @@
 
 .leaderboard-list {
     list-style: decimal;
-    font-size: 3.5vh;
+    font-size: min(3.5vw, 30px);
     font-weight: bold;
 }
 
@@ -47,9 +48,9 @@
     -webkit-box-shadow: inset 0 0 15px #5e057e;
     background-color: #4e1c61;
 }
-
+/* 
 @media screen and (max-width: 850px) {
     .leaderboard-container-container {
         height: 20vh;
     }
-}
+} */
