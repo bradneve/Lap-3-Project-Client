@@ -1,4 +1,15 @@
 .main {
     background-image: linear-gradient( #5A1E84, #5e057e);
-    height: 100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100vh;
+    width:100vw;
+    margin: 0;
+    overflow-y: scroll;
+}
+body{
+    background-image: linear-gradient( #5A1E84, #5e057e);
 }

@@ -1,6 +1,8 @@
 .logo {
     text-shadow: 4px 4px #180474;
+    text-align: center;
 }
 img {
-    height: 100px;
+    height: 10%;
+    margin: 10px;
 }

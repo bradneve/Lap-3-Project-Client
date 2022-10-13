@@ -6,9 +6,7 @@ describe('WaitingRoom', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                <Router>
                     <WaitingRoom />
-                </Router>
                 , {})
         )
     })

@@ -3,7 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
+    margin-top: 100px;
+    /* padding-bottom: 100px; */
+    margin-bottom: 100px;
 }
 
 .logout {
@@ -22,4 +25,13 @@
     font-weight: bold;
     text-shadow: 3px 3px #180474;
     text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .home-container {
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
 }
