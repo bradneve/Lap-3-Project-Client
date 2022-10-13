@@ -4,7 +4,7 @@ import './style.css'
 const Leaderboard = () => {
   return (
     <div className='leaderboard-container-container'>
-      <h1 style={{fontWeight: 'bold', textDecoration: 'underline'}}>Most Wins</h1>
+      <h1 style={{fontWeight: 'bold', textDecoration: 'underline', fontSize: 'min(3vw,35px)'}}>Most Wins</h1>
       <div className='leaderboard-container'>
         <ul className='leaderboard-list' role={"list"}>
           <li>beastman69 - 5498</li>

@@ -9,6 +9,8 @@ const RoundSummary = () => {
 
     const [counterStart, setCounterStart] = useState(0)
     const [counter, setCounter] = useState(5)
+    const [endCounter, setEndCounter] = useState(3)
+
     const [currentQuestion, setCurrentQuestion] = useState('')
     const [currentCorrectAnswers, setCurrentCorrectAnswers] = useState('')
 
@@ -23,12 +25,11 @@ const RoundSummary = () => {
             setCurrentCorrectAnswers(gameState.correctAnswers[gameState.questionNumber])
         } else {
             setCounterStart(1)
-            // navigate('/question')
         }
     }, [gameState.questionNumber])
 
     useEffect(() => {
-        if (!!counterStart && !gameState.isGameFinished) {
+        if (!!counterStart) {
             if (counter > 0) {
                 setTimeout(() => setCounter(counter - 1), 1000);
             } else {
@@ -37,10 +38,27 @@ const RoundSummary = () => {
         }
     }, [counter, counterStart])
 
+    useEffect(() => {
+        if (!!gameState.isGameFinished) {
+            if (endCounter > 0) {
+                setTimeout(() => setEndCounter(endCounter - 1), 1000);
+            } else {
+                navigate('/gameover')
+            }
+        }
+    }, [gameState.isGameFinished, endCounter])
+
     return (
         <>
             <div className='timer'>
-                {counterStart ? <div>Next question in: {counter}</div> : <div>Waiting for players to answer</div>}
+                {gameState.isGameFinished
+                    ? <div>Game over in: {endCounter}</div>
+                    : [
+                        counterStart
+                            ? <div>Next question in: {counter}</div>
+                            : <div>Waiting for players to answer</div>
+                    ]
+                }
             </div>
 
             <div role={"main"} className='summary-container'>
