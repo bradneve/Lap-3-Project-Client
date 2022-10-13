@@ -5,10 +5,9 @@ import './style.css'
 const GameOver = () => {
     return (
         <div className='game-over-container'>
-            <div className='w-l-container'>
+                <h1 className='game-over-title' >GAME OVER</h1>
                 <div className='winner-loser-box'>Winner:</div>
                 <div className='winner-loser-box'>Loser: </div>
-            </div>
             <InGameLeaderboard currentOrFinal={'Final'}/>
         </div>
     )
