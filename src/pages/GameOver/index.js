@@ -79,9 +79,9 @@ const GameOver = () => {
                 <h1 style={{ fontWeight: 'bold', textDecoration: 'underline', color: '#5e057e', fontSize: 'min(3.5vw, 40px)' }}>Loser(s)</h1>
                 <h1>{getLoser()}</h1>
             </div>
-            <InGameLeaderboard currentOrFinal={'Final'} />
-            <button onClick={handleBackButton}>Back to home</button>
-            <p style={{ display: "none" }}>{toHome && <Navigate replace to="/home" />}</p>
+            <InGameLeaderboard currentOrFinal={'Final'}/>
+            <button style={{margin: '1vw'}} className='back-btn' onClick={handleBackButton}>Back to home</button>
+            <p style={{display: "none"}}>{toHome && <Navigate replace to="/home" />}</p>
         </div>
     )
 }

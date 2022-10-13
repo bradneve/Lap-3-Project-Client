@@ -8,6 +8,11 @@
     box-shadow: 5px 6px #180474;
 }
 
+.back-btn:hover {
+    background-color: #180474;
+    color: mediumspringgreen;
+}
+
 .btn-container {
     padding-right: 4vw;
     width: 100vw;
