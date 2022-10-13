@@ -29,3 +29,13 @@ export const register = async (username, password) => {
         return 1
     }
 }
+
+export const updateWins = async (username) => {
+    try {
+        await axios.patch('https://trivia-rangers.herokuapp.com/users', {
+            name: username
+        })
+    } catch (error) {
+        console.error(error.message)
+    }
+}
