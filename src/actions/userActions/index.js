@@ -3,12 +3,12 @@ import axios from 'axios'
 export const login = async (username, password) => {
     try {
         let { data } = await axios.post('https://trivia-rangers.herokuapp.com/users/login', {
-            name: username, 
+            name: username,
             password: password
         })
         return data.token
     } catch (err) {
-        if (err.response.status === 401) { 
+        if (err.response.status === 401) {
             console.error(err.message)
             return err.response.status
         } else {
@@ -20,7 +20,7 @@ export const login = async (username, password) => {
 export const register = async (username, password) => {
     try {
         await axios.post('https://trivia-rangers.herokuapp.com/users', {
-            name: username, 
+            name: username,
             password: password
         })
         return 0
@@ -29,3 +29,23 @@ export const register = async (username, password) => {
         return 1
     }
 }
+
+export const updateWins = async (username) => {
+    try {
+        await axios.patch('https://trivia-rangers.herokuapp.com/users', {
+            name: username
+        })
+    } catch (error) {
+        console.error(error.message)
+    }
+}
+
+export const getWinners = async () => {
+    try {
+        const { data } = await axios.get('https://trivia-rangers.herokuapp.com/users/wins')
+        return data
+    } catch (error) {
+        console.error(error.message)
+    }
+}
+
