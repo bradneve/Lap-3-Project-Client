@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate, Link} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import { JoinGameForm, Logo } from '../../components'
@@ -10,11 +10,21 @@ const Home = () => {
   const gameState = useSelector((state) => state.gameState);
 
   useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      navigate("/")
-    }
     if (!!Object.keys(gameState).length) {
       window.location.reload();
+    }
+
+    //check for valid token
+    if (!localStorage.getItem('token')) {
+      navigate("/")
+    } else {
+      const options = { headers: new Headers({ 'Authorization': localStorage.getItem('token') }) }
+      fetch('https://trivia-rangers.herokuapp.com', options)
+        .then(res => {
+          if (!res.ok) {
+            handleLogout()
+          }
+        })
     }
   }, [])
 
