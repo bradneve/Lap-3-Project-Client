@@ -3,11 +3,7 @@ import { default as GameOver } from './index'
 
 describe('GameOver', () => {
     beforeEach(() => {
-        render(
-            renderWithReduxProvider(
-                    <GameOver />
-                , {})
-        )
+        renderWithReduxProvider(<GameOver />, {})
     })
 
     test('renders the page', () => {
