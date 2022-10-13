@@ -45,7 +45,7 @@ const WaitingRoom = () => {
   return (
     <>
       {data.users &&
-        <div role={"main"} className='waiting-container'>
+        <div role="main" className='waiting-container'>
           <Logo />
           <p className='game-id'>{data.host}'s room</p>
           <p className='game-id'>Game ID: {data.roomId}</p>
