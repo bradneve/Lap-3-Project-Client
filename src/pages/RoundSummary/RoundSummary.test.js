@@ -6,9 +6,7 @@ describe('RoundSummary', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                <Router>
                     <RoundSummary />
-                </Router>
                 , {})
         )
     })

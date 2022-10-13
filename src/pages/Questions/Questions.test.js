@@ -1,14 +1,11 @@
 import { screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { default as Questions } from './index'
 
 describe('Questions', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                <Router>
                     <Questions />
-                </Router>
                 , {})
         )
     })
