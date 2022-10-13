@@ -5,9 +5,9 @@ import { default as InGameLeaderboard } from './index'
 describe('InGameLeaderboard', () => {
     beforeEach(() => {
         render(
-            <Router>
-                <InGameLeaderboard />
-            </Router>
+            renderWithReduxProvider(
+                    <InGameLeaderboard />
+                , {})
         )
     })
 

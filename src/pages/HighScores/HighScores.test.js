@@ -1,17 +1,17 @@
 import { screen } from '@testing-library/react';
-import { default as RoundSummary } from './index'
+import { default as HighScores } from './index'
 
-describe('RoundSummary', () => {
+describe('HighScores', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                    <RoundSummary />
+                    <HighScores />
                 , {})
         )
     })
 
     test('renders the page', () => {
-        let roundSummary = screen.getByRole("main")
-        expect(roundSummary).toBeTruthy
+        let highScores = screen.getByRole("main")
+        expect(highScores).toBeTruthy
     })
 })

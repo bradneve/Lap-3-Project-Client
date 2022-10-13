@@ -1,17 +1,17 @@
 import { screen } from '@testing-library/react';
-import { default as RoundSummary } from './index'
+import { default as GameOver } from './index'
 
-describe('RoundSummary', () => {
+describe('GameOver', () => {
     beforeEach(() => {
         render(
             renderWithReduxProvider(
-                    <RoundSummary />
+                    <GameOver />
                 , {})
         )
     })
 
     test('renders the page', () => {
-        let roundSummary = screen.getByRole("main")
-        expect(roundSummary).toBeTruthy
+        let gameOver = screen.getByRole("main")
+        expect(gameOver).toBeTruthy
     })
 })

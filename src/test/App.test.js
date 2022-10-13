@@ -12,3 +12,21 @@
 //         expect(Login).toBeTruthy()
 //     })
 // });
+
+import { screen } from '@testing-library/react';
+import { default as App } from '../App'
+
+describe('App', () => {
+    beforeEach(() => {
+        render(
+            renderWithReduxProvider(
+                    <App />
+                , {})
+        )
+    })
+
+    test('renders the page', () => {
+        let roundStats = screen.getByRole("application")
+        expect(roundStats).toBeTruthy
+    })
+})
