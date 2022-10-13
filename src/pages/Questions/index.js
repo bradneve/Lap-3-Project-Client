@@ -21,7 +21,6 @@ const Questions = () => {
         if (counter > 0) {
             setTimeout(() => setCounter(counter - 1), 1000);
         } else {
-            // let score = 0
             socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: 0 })
             navigate('/roundover')
         }
@@ -39,11 +38,9 @@ const Questions = () => {
 
     function handleAnswerSubmit(e) {
         if (e.target.textContent === gameState.correctAnswers[gameState.questionNumber]) {
-            // let score = counter
             socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: counter })
             navigate('/roundover')
         } else {
-            // let score = 0
             socket.emit('update player score', { roomId: gameState.roomId, user: clientUser, score: 0 })
             navigate('/roundover')
         }
