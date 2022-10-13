@@ -28,11 +28,14 @@ const App = () => {
         newSocket.on("update score", ({ user, score }) => {
             dispatch(updateScore(user, score));
         });
+        if(!Object.keys(gameState).length) {
+            newSocket.on('user disconnected from room', () => {
+                alert('A player has disconnected');
+                window.location.href = '/home'
+            })
+        }
         dispatch(storeSocket(newSocket))
         setSocket(newSocket)
-        // return () => {
-        //     socket.newSocket.disconnect()
-        // }
     }, [])
 
     useEffect(() => {
