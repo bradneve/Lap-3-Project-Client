@@ -7,6 +7,8 @@
 }
 
 .list-of-members {
+    border-style: solid;
+    border-color: #180474;
     list-style-type: none;
     border-radius: 10px 10px 10px 10px;
     background-color: mediumspringgreen;
