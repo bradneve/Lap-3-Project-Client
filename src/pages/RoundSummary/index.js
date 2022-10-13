@@ -23,7 +23,6 @@ const RoundSummary = () => {
             setCurrentCorrectAnswers(gameState.correctAnswers[gameState.questionNumber])
         } else {
             setCounterStart(1)
-            // navigate('/question')
         }
     }, [gameState.questionNumber])
 
