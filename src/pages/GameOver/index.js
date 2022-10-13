@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
+import { Navigate } from "react-router-dom";
+
 import { InGameLeaderboard } from '../../components'
 import './style.css'
 
 const GameOver = () => {
     const gameState = useSelector(state => state.gameState);
+
+    if (!Object.keys(gameState).length) {
+        window.location.href = '/home'
+    }
+
+    const [toHome, setToHome] = useState(0);
 
     function getScores() {
         const scores = []
@@ -28,6 +36,10 @@ const GameOver = () => {
         return gameState.users[index].name
     }
 
+    function handleBackButton() {
+        setToHome(1)
+    }
+
     return (
         <div role={"main"} className='game-over-container'>
             <div className='w-l-container'>
@@ -45,6 +57,8 @@ const GameOver = () => {
                 </div>
             </div>
             <InGameLeaderboard currentOrFinal={'Final'}/>
+            <button onClick={handleBackButton}>Back to home</button>
+            <p style={{display: "none"}}>{toHome && <Navigate replace to="/home" />}</p>
         </div>
     )
 }

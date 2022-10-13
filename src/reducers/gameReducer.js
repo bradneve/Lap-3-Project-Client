@@ -13,20 +13,12 @@ const gameReducer = (state = initState, action) => {
             let newUsersList = [...state.gameState.users];
             newUsersList.push({ name: action.payload, score: 0, hasCompletedQuiz: false })
             return { ...state, gameState: { ...state.gameState, users: newUsersList } };
-        case 'INCREMENT_QUESTION':
-            let newQuestionNumber = state.gameState.questionNumber + 1;
-            return { ...state, gameState: { ...state.gameState, questionNumber: newQuestionNumber } };
         case 'UPDATE_SCORE':
             let newUsers = [...state.gameState.users];
             let userIdx = newUsers.findIndex(item => item.name === action.user);
             newUsers[userIdx].score += action.score;
             newUsers[userIdx].hasCompletedRound = true;
             return { ...state, gameState: { ...state.gameState, users: newUsers } };
-        case 'COMPLETE_QUIZ':
-            let newUsersArray = [...state.gameState.users];
-            let Idx = newUsersArray.findIndex(item => item.name === action.payload);
-            newUsersArray[Idx].hasCompletedQuiz = true;
-            return { ...state, gameState: { ...state.gameState, users: newUsersArray } };
         default:
             return state;
     }

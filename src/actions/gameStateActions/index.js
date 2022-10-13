@@ -19,12 +19,6 @@ const addUser = (user) => {
     }
 }
 
-const incrementQuestionNumber = () => {
-    return {
-        type: 'INCREMENT_QUESTION'
-    }
-}
-
 const updateScore = (user, score) => {
     return {
         type: 'UPDATE_SCORE',
@@ -33,12 +27,5 @@ const updateScore = (user, score) => {
     }
 }
 
-const setQuizAsComplete = (user) => {
-    return {
-        type: 'COMPLETE_QUIZ',
-        payload: user
-    }
-}
 
-
-export { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete };
+export { changeState, storeSocket, addUser, updateScore };

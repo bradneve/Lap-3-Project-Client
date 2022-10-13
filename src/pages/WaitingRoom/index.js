@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { Logo } from '../../components'
 import './style.css'
@@ -9,12 +9,6 @@ const WaitingRoom = () => {
 
   const data = useSelector(state => state.gameState);
   const socket = useSelector(state => state.socket)
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(data);
-  }, [data])
-
 
   function ifHost() {
     if (data.host === localStorage.getItem('username')) {
@@ -36,15 +30,20 @@ const WaitingRoom = () => {
     socket.emit('send state to players', newState)
   }
 
-  useEffect(() => {
-    if (!!data.isGameStarted) {
-      navigate("/question")
-    }
-  }, [data.isGameStarted])
+  const [toHome, setToHome] = useState(0);
+  function handleBackButton() {
+    setToHome(1)
+  }
 
   return (
     <>
-      {data.users &&
+      {!Object.keys(data).length
+        ? 
+        <div className='d-flex justify-content-center d-flex align-items-center'>
+          <button onClick={handleBackButton}>Back to home</button>
+          <p style={{display: "none"}}>{toHome && <Navigate replace to="/home" />}</p>
+        </div>
+        :
         <div role="main" className='waiting-container'>
           <Logo />
           <p className='game-id'>{data.host}'s room</p>
@@ -60,6 +59,7 @@ const WaitingRoom = () => {
           </div>
         </div>
       }
+      <p style={{display: "none"}}>{data.isGameStarted && <Navigate replace to="/question" />}</p>
     </>
   )
 }

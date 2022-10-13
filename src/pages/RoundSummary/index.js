@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { InGameLeaderboard } from '../../components'
 import './style.css'
 
 const RoundSummary = () => {
+
+    const gameState = useSelector(state => state.gameState);
+
+    if(!Object.keys(gameState).length) {
+        window.location.href = '/home'
+    }
 
     const [counterStart, setCounterStart] = useState(0)
     const [counter, setCounter] = useState(5)
@@ -14,8 +20,8 @@ const RoundSummary = () => {
     const [currentQuestion, setCurrentQuestion] = useState('')
     const [currentCorrectAnswers, setCurrentCorrectAnswers] = useState('')
 
-    const navigate = useNavigate();
-    const gameState = useSelector(state => state.gameState);
+    const [toQuestion, setToQuestion] = useState(0);
+    const [toGameOver, setToGameOver] = useState(0);
     const isMounted = useRef(false);
 
     useEffect(() => {
@@ -33,7 +39,7 @@ const RoundSummary = () => {
             if (counter > 0) {
                 setTimeout(() => setCounter(counter - 1), 1000);
             } else {
-                navigate('/question')
+                setToQuestion(1)
             }
         }
     }, [counter, counterStart])
@@ -43,7 +49,7 @@ const RoundSummary = () => {
             if (endCounter > 0) {
                 setTimeout(() => setEndCounter(endCounter - 1), 1000);
             } else {
-                navigate('/gameover')
+                setToGameOver(1)
             }
         }
     }, [gameState.isGameFinished, endCounter])
@@ -72,6 +78,8 @@ const RoundSummary = () => {
                 </div>
                 <InGameLeaderboard currentOrFinal={'Current'} />
             </div>
+            <p style={{display: "none"}}>{toQuestion && <Navigate replace to="/question" />}</p>
+            <p style={{display: "none"}}>{toGameOver && <Navigate replace to="/gameover" />}</p>
         </>
     )
 }
