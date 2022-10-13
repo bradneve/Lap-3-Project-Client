@@ -82,7 +82,7 @@ const App = () => {
 
     return (
         <div role={"application"} className='main'>
-
+            <audio src="song.mp3" loop autoPlay></audio>
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />
