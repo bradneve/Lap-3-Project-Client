@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Login, Home, Questions, RoundSummary, WaitingRoom, HighScores, GameOver } from './pages';
 import './app.css'
 
-import { changeState, storeSocket, addUser, incrementQuestionNumber, updateScore, setQuizAsComplete } from './actions/gameStateActions'
+import { changeState, storeSocket, addUser, updateScore } from './actions/gameStateActions'
 
 const io = require('socket.io-client')
 const ENDPOINT = 'https://trivia-rangers.herokuapp.com/'
@@ -62,10 +62,7 @@ const App = () => {
                 }
             })
 
-            console.log(roundComplete)
-
             if (!!roundComplete && (gameState.questionNumber < (gameState.questions.length-1))) {
-                console.log('why are you here???')
                 let newGameState = { ...gameState }
                 for (let i=0; i < newGameState.users.length; i++) {
                     newGameState.users[i].hasCompletedRound = false

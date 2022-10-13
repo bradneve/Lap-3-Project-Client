@@ -22,7 +22,6 @@ export const fetchQuestions = async (e) => {
             answers: [],
             correct_answers: []
         }
-        console.log('data', data);
         data.results.forEach(question => {
             result.answers.push(shuffle(decodeArray(question.incorrect_answers.concat([question.correct_answer]))))
             result.correct_answers.push(atob(question.correct_answer))
