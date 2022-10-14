@@ -16,9 +16,11 @@ const TestProviders = ({ initState }) => {
             users: [ { hasCompletedRound: false }],
             questions: [],
             correctAnswers: [],
-            answers: [],
+            answers: [['1', '2', '3', '4']],
             isGameFinished: true,
-            host: 'test'
+            host: 'test',
+            questionNumber: 0
+
         },
         socket: {},
     };

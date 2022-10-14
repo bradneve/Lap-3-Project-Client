@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 import { Login, Home, Questions, RoundSummary, WaitingRoom, HighScores, GameOver } from './pages';
 import './app.css'
 
@@ -82,7 +82,6 @@ const App = () => {
 
     return (
         <div role={"application"} className='main'>
-            <audio src="song.mp3" loop autoPlay></audio>
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/home" element={<Home />} />

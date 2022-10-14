@@ -9,7 +9,7 @@ const RoundSummary = () => {
 
     const gameState = useSelector(state => state.gameState);
 
-    if(!Object.keys(gameState).length) {
+    if (!Object.keys(gameState).length) {
         window.location.href = '/home'
     }
 
@@ -56,18 +56,18 @@ const RoundSummary = () => {
 
     return (
         <>
-            <div className='waiting-room-timer'>
-                {gameState.isGameFinished
-                    ? <div>Game over in: {endCounter}</div>
-                    : [
-                        counterStart
-                            ? <div>Next question in: {counter}</div>
-                            : <div>Waiting for players to answer</div>
-                    ]
-                }
-            </div>
-
             <div role={"main"} className='summary-container'>
+                <div className='waiting-room-timer'>
+                    {gameState.isGameFinished
+                        ? <div>Game over in: {endCounter}</div>
+                        : [
+                            counterStart
+                                ? <div>Next question in: {counter}</div>
+                                : <div>Waiting for players to answer</div>
+                        ]
+                    }
+                </div>
+
                 <div className='correct-answer'>
                     <p>Question:</p>
                     <p>{currentQuestion}</p>
@@ -78,8 +78,8 @@ const RoundSummary = () => {
                 </div>
                 <InGameLeaderboard currentOrFinal={'Current'} />
             </div>
-            <p style={{display: "none"}}>{toQuestion && <Navigate replace to="/question" />}</p>
-            <p style={{display: "none"}}>{toGameOver && <Navigate replace to="/gameover" />}</p>
+            <p style={{ display: "none" }}>{toQuestion && <Navigate replace to="/question" />}</p>
+            <p style={{ display: "none" }}>{toGameOver && <Navigate replace to="/gameover" />}</p>
         </>
     )
 }
