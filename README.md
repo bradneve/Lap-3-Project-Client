@@ -11,18 +11,18 @@
 
 ## Changelog
 
-[x] Set up database and server.
-[x] Create front-end and style.
-[x] Establish socket connection between front-end and back-end.
-[x] Add join game functionality, users can join waiting room.
-[x] Implement round system.
-[x] Implement in game score tracking.
-[x] Track game-winners and display win totals on leaderboard.
-[x] Bug fixes for disconnections.
+[x] Set up database and server.   
+[x] Create front-end and style.    
+[x] Establish socket connection between front-end and back-end.   
+[x] Add join game functionality, users can join waiting room.   
+[x] Implement round system.   
+[x] Implement in game score tracking.   
+[x] Track game-winners and display win totals on leaderboard.  
+[x] Bug fixes for disconnections.  
 
 ## Bugs
-[] Leave game ends game for everyone. 
-[] Minor issues with responsive design.
+[] Leave game ends game for everyone.   
+[] Minor issues with responsive design.   
 
 ## Wins & Challenges
 ### Wins
