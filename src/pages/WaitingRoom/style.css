@@ -34,6 +34,11 @@
     margin: 10px;
 }
 
+.start:hover {
+    background-color: #180474;
+    color: mediumspringgreen;
+}
+
 .wait-for-host {
     margin: 10px;
     color: #FFA500;

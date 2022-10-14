@@ -12,9 +12,7 @@ const WaitingRoom = () => {
 
   function ifHost() {
     if (data.host === localStorage.getItem('username')) {
-      return (
-        <button className='start' onClick={handleStartGame}>Start game</button>
-      )
+      return (<button className='start' onClick={handleStartGame}>Start game</button>)
     } else {
       return (
         <p className='wait-for-host'>Waiting for host to start the game...</p>
@@ -55,7 +53,10 @@ const WaitingRoom = () => {
               <h4>In the waiting room:</h4>
               {data.users.map(user => { return <li key={user.name}>{user.name}</li> })}
             </ul>
-            {ifHost()}
+            {data.users.length > 1
+              ? ifHost()
+              : <p className='game-id'>Two players required to start game...</p>
+            }
           </div>
         </div>
       }

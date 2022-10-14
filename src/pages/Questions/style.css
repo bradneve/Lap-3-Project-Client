@@ -40,5 +40,9 @@
     border-color: #180474;
     box-shadow: 5px 5px;
     border-style: solid;
+}
 
+.options:hover {
+    font-weight: bold;
+    font-size: 1.5rem;
 }
