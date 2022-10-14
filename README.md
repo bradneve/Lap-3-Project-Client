@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# LAP 3 Project - Trivia Rangers
+## Installation & Usage
+- Visit https://triviarangers.netlify.app/ and make an account to play.
+- Vist https://trivia-rangers.herokuapp.com/ to see our back-end
+- Or:
+    - Clone the repo.  
+    - CD to Lap-3-Project in your terminal.  
+    - Run npm install to install dependencies.  
+    - Run `npm run dev` to launch the server.  
+    - Run `npm run test` to launch the test suite.  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Changelog
 
-## Available Scripts
+[x] Set up database and server.
+[x] Create front-end and style.
+[x] Establish socket connection between front-end and back-end.
+[x] Add join game functionality, users can join waiting room.
+[x] Implement round system.
+[x] Implement in game score tracking.
+[x] Track game-winners and display win totals on leaderboard.
+[x] Bug fixes for disconnections.
 
-In the project directory, you can run:
+## Bugs
+[] Leave game ends game for everyone. 
+[] Minor issues with responsive design.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Wins & Challenges
+### Wins
+- Implemented socket.io from scratch.
+- Fun front-end design.
+- Fixed most bugs we had with socket.io connection.  
+- Worked well as a team, planned workload well.
+ 
+### Challenges
+- Getting to grips with socket.io.
+- Responsive css.
+- Client-side testing.
