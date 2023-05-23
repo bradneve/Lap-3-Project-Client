@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Publish the application
-        run: npm run publish
+        run: npm run publish --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
