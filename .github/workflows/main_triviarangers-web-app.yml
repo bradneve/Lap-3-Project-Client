@@ -28,10 +28,10 @@ jobs:
         run: npm ci
 
       - name: Build the application
-        run: npm run build --if-present
+        run: npm run build
 
       - name: Publish the application
-        run: npm run publish --if-present
+        run: npm run publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
